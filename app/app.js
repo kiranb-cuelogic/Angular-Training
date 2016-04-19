@@ -6,5 +6,5 @@ angular.module('tandem', [
   'user'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/users'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]);
