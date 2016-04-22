@@ -51,7 +51,3 @@ input.ng-dirty.ng-valid {
 .student-img {
   width: 150px;
 }
-.form-control:focus {
-  border-color: transparent;
-  outline: none;
-}

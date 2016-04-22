@@ -3,6 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('angularTraining', [
     'ngRoute',
+    'providers',
+    'services',
+    'directives',
     'login',
     'user'
 ]).

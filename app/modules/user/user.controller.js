@@ -1,4 +1,6 @@
-angular.module('user.controller',['services'])
+'use strict';
+
+angular.module('user')
       .controller('userCtrl',['$scope','userService',UserController])
 
 function UserController($scope,userService) {

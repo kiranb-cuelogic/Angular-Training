@@ -1,7 +1,9 @@
-angular.module('user.route', ['ngRoute'])
+'use strict';
+
+angular.module('user')
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/users', {
-    templateUrl: 'app/user/views/user.html',
+    templateUrl: 'app/modules/user/templates/user.view.html',
     controller: 'userCtrl'
   });
 }]);

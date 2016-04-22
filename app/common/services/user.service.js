@@ -1,7 +1,8 @@
-angular.module('user.service',[])
-       .service('userService',[userService]);
+'use strict';
 
-
+angular
+	.module('services')
+    .service('userService',[userService]);
 
 function userService() {
 
