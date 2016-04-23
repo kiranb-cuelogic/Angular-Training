@@ -33,16 +33,20 @@
     </ul>
     <div ng-view></div>
 
-    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> -->
+    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> 
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>-->
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ngStorage/ngStorage.min.js"></script>
 
     <!-- Common files to be loaded first -->
     <script src="app/common/providers/index.provider.js"></script>
+    <script src="app/common/providers/credentials.provider.js"></script>
 
     <script src="app/common/services/index.service.js"></script>
     <script src="app/common/services/login.service.js"></script>
+    <script src="app/common/services/employees.service.js"></script>
     <script src="app/common/services/user.service.js"></script>
 
     <script src="app/common/directives/index.directive.js"></script>
@@ -51,6 +55,11 @@
     <script src="app/modules/login/login.index.js"></script>
     <script src="app/modules/login/login.controller.js"></script>
     <script src="app/modules/login/login.route.js"></script>
+
+    <!-- Home module -->
+    <script src="app/modules/home/home.index.js"></script>
+    <script src="app/modules/home/home.controller.js"></script>
+    <script src="app/modules/home/home.route.js"></script>
 
     <!-- User module -->
     <script src="app/modules/user/user.index.js"></script>

@@ -1,10 +1,20 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginCtrl', ['$scope', LoginController])
+    .controller('loginCtrl', ['$scope', '$location', 'loginService', LoginController])
 
-function LoginController($scope) {
+function LoginController($scope, $location, loginService) {
+
     $scope.validateUser = function() {
-        alert('fjgd');
+
+        var isValid = loginService.validateUser($scope.user);
+
+        if (isValid) {
+            $location.path('/home');
+        } else {
+            alert('Not Registered!');
+        }
+
     }
+
 };
