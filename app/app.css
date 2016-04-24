@@ -39,15 +39,7 @@ input.ng-dirty.ng-valid {
 .error-message {
   color: red;
 }
-.student-thumbnail {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  margin: 0 50px;
-}
-.student-hover {
-  box-shadow: 0 0 1px 1px #a94442;
-}
-.student-img {
-  width: 150px;
-}
+/*
+.confirmDel {
+  position: absolute;
+}*/

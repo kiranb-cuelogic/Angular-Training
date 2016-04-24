@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css"> -->
 
     <link rel="stylesheet" href="app/app.css">
 
@@ -33,12 +32,15 @@
     </ul>
     <div ng-view></div>
 
-    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> 
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>-->
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
 
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/ngStorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
     <!-- Common files to be loaded first -->
     <script src="app/common/providers/index.provider.js"></script>
@@ -50,6 +52,7 @@
     <script src="app/common/services/user.service.js"></script>
 
     <script src="app/common/directives/index.directive.js"></script>
+    <script src="app/common/directives/delete_emp.directive.js"></script>
 
     <!-- Login module -->
     <script src="app/modules/login/login.index.js"></script>
@@ -60,6 +63,12 @@
     <script src="app/modules/home/home.index.js"></script>
     <script src="app/modules/home/home.controller.js"></script>
     <script src="app/modules/home/home.route.js"></script>
+
+    <!-- Edit module -->
+    <script src="app/modules/edit/edit.index.js"></script>
+    <script src="app/modules/edit/edit.controller.js"></script>
+    <script src="app/modules/edit/add.controller.js"></script>
+    <script src="app/modules/edit/edit.route.js"></script>
 
     <!-- User module -->
     <script src="app/modules/user/user.index.js"></script>

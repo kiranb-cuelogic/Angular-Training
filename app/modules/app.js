@@ -4,11 +4,15 @@
 angular.module('angularTraining', [
     'ngRoute',
     'ngStorage',
+    'ngMessages',
+    'ngAnimate',
+    'ui.bootstrap',
     'providers',
     'services',
     'directives',
     'login',
     'home',
+    'edit',
     'user'
 ])
 .config(['$routeProvider', function($routeProvider) {

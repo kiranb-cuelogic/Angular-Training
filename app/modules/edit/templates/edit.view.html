@@ -1,0 +1,58 @@
+<div class="col-md-12">
+    <h4 class="text-info"><b>{{state=='edit' ? 'Edit Employee' : 'Add Employee'}}</b></h4>
+</div>
+<div class="col-md-8 col-md-offset-2 well">
+    <form id="editForm" name="editForm" novalidate>
+        <div class="form-group clearfix">
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="name">Name</label>
+                <input class="form-control" type="text" name="name" ng-model="editEmp.name" ng-required="true" />
+                <span ng-messages="editForm.name.$error" role="alert" class="error-message">
+                    <div ng-message="required">Please enter name.</div>
+                </span>
+            </div>
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="gender">Gender</label>
+                <div class="">
+                    <input type="radio" name="gender" ng-model="editEmp.gender" value="male"> Male
+                    <input type="radio" name="gender" ng-model="editEmp.gender" value="female"> Female
+                </div>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="email">Email</label>
+                <input class="form-control" type="email" name="email" ng-model="editEmp.email" ng-required="true" />
+                <span ng-messages="editForm.email.$error" role="alert" class="error-message">
+                    <div ng-message="required">Please enter email.</div>
+                    <div ng-message="email">Please enter valid email.</div>
+                </span>
+            </div>
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="age">Age</label>
+                <input class="form-control" type="number" name="age" ng-model="editEmp.age" ng-required="true" min="20" />
+                <span ng-messages="editForm.age.$error" role="alert" class="error-message">
+                    <div ng-message="required">Please enter age.</div>
+                </span>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="phone">Phone No</label>
+                <input class="form-control" type="tel" name="phone" ng-model="editEmp.phone" ng-required="true" />
+                <span ng-messages="editForm.phone.$error" role="alert" class="error-message">
+                    <div ng-message="required">Please enter phone no.</div>
+                    <div ng-message="email">Please enter valid phone no.</div>
+                </span>
+            </div>
+            <div class="controls col-md-6">
+                <label class="form-label text-primary" for="address">Address</label>
+                <input class="form-control" type="textarea" name="address" ng-model="editEmp.address" ng-required="true" />
+                <span ng-messages="editForm.address.$error" role="alert" class="error-message">
+                    <div ng-message="required">Please enter address.</div>
+                </span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary center-block" ng-disabled="editForm.$invalid" ng-click="updateEmp(editEmp)">Submit</button>
+    </form>
+</div>
