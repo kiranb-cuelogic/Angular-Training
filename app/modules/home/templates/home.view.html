@@ -1,15 +1,16 @@
-<h1>Hello {{loggedInEmp.name}}</h1>
-<div class="col-md-10">
-    <h4 class="text-info"><b>Employees</b></h4>
+<h1>Hello {{loggedInEmp}}</h1>
+<div class="well clearfix">
+    <div class="col-md-8">
+        <h4 class="text-info"><b>Employees</b></h4>
+    </div>
+    <div class="col-md-2">
+        <select ng-init="sortBy=sortOpts[0];order(sortBy)" class="form-control" ng-options="item for item in sortOpts | uppercase" ng-model="sortBy" ng-change="order(sortBy)"></select>
+    </div>
+    <div class="col-md-2">
+        <a href="#add" class="btn btn-primary pull-right">Add Employee</a>
+    </div>
 </div>
-<div class="col-md-2 input-group">
-    <!-- <input type="text" value="" ng-model="search" class="form-control" placeholder="Search">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span> -->
-    <a href="#add" class="btn btn-primary">Add Employee</a>
-    <!-- <a href="#edit/:add" class="btn btn-primary">Add Employee</a> -->
-</div>
-<br>
-<div class="col-md-12">
+<div class="well">
     <table class="table table-hover table-bordered">
         <thead class="thead-default">
             <tr>
@@ -24,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="data in employees | filter : search | orderBy:'_id'" class="text-primary">
+            <tr ng-repeat="data in employees" class="text-primary">
                 <td ng-click="editEmployee(data._id)">{{data._id}}</td>
                 <td ng-click="editEmployee(data._id)">{{data.name}}</td>
                 <td ng-click="editEmployee(data._id)">{{data.email}}</td>
@@ -32,7 +33,9 @@
                 <td ng-click="editEmployee(data._id)">{{data.gender}}</td>
                 <td ng-click="editEmployee(data._id)">{{data.phone}}</td>
                 <td ng-click="editEmployee(data._id)">{{data.address}}</td>
-                <td><del-emp id="{{data._id}}"></del-emp></td>
+                <td>
+                    <del-emp id="{{data._id}}"></del-emp>
+                </td>
             </tr>
         </tbody>
     </table>

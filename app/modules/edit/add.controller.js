@@ -1,19 +1,17 @@
 'use strict';
 
 angular.module('edit')
-    .controller('addCtrl', ['$scope', AddController]);
+    .controller('addCtrl', ['$scope', '$location', 'employeesService', AddController]);
 
-function AddController($scope) {
+function AddController($scope, $location, employeesService) {
     $scope.state = 'add';
+    $scope.addEmp = addEmp;
 
-console.log($scope.editEmp);
-    // $scope.editEmp.name.$dirty = false;
-    // $scope.editEmp = {};
+    function addEmp(obj) {
+        var employees;
 
-    // $scope.editForm = {};
-
-    //$scope.editForm.$setPristine();
-    //$scope.editForm.$setDirty();
-
+        employees = employeesService.addEmp(obj);
+        $location.path('/home');
+    };
 
 };

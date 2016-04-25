@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('services').service('employeesService', ['$http', '$q', '$location', '$timeout', employeesService]);
+angular.module('services').service('employeesService', ['$http', '$q', '$location', '$timeout', '$localStorage', employeesService]);
 
-function employeesService($http, $q, $location, $timeout) {
+function employeesService($http, $q, $location, $timeout, $localStorage) {
 
     var service = {},
         empList = empList = [{
@@ -63,6 +63,7 @@ function employeesService($http, $q, $location, $timeout) {
             "address": "287 Woodhull Street, Vincent, Mississippi, 174"
         }];
 
+    service.getLoggedInEmp = getLoggedInEmp;
     service.getEmp = getEmp;
     service.setEmp = setEmp;
     service.addEmp = addEmp;
@@ -70,6 +71,13 @@ function employeesService($http, $q, $location, $timeout) {
 
     return service;
 
+    function getLoggedInEmp(obj) {
+        var loggedInEmp = {};
+        
+        loggedInEmp = empList.filter(function(e) {return e.email == obj })[0];
+
+        return loggedInEmp;
+    };
 
     function getEmp() {
         var deferredP = $q.defer();
@@ -87,6 +95,10 @@ function employeesService($http, $q, $location, $timeout) {
         //     .error(function(data) {
         //         deferredP.reject("error occured");
         //     });
+
+        var arr = _.reject(empList, ['_id', $localStorage.user._id.toString()]);
+        empList = arr;
+
         $timeout(function() {
             deferredP.resolve(empList);
         }, 100);
@@ -99,7 +111,10 @@ function employeesService($http, $q, $location, $timeout) {
     }
 
     function addEmp(obj) {
-
+        var _id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 24);
+        obj._id = _id
+        empList.push(obj)
+        return empList;
     }
 
     function delEmp(obj) {

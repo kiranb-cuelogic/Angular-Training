@@ -2,9 +2,9 @@
 
 angular
     .module('services')
-    .service('loginService', ['credentials', '$localStorage', loginService]);
+    .service('loginService', ['credentials', '$localStorage', 'employeesService', loginService]);
 
-function loginService(credentials, $localStorage) {
+function loginService(credentials, $localStorage, employeesService) {
 
     var service = {};
     service.validateUser = validateUser;
@@ -16,7 +16,9 @@ function loginService(credentials, $localStorage) {
         var isValid = credentials.get().findIndex(i => i.email === user.email && i.password === user.password);
 
         if (isValid != -1) {
-        	$localStorage.user = credentials.get()[isValid];
+            
+        	$localStorage.user = employeesService.getLoggedInEmp(user.email);
+            
             return true;
         } else {
             return false;
