@@ -97,10 +97,10 @@ function employeesService($http, $q, $location, $timeout, $localStorage) {
         //     });
 
         var arr = _.reject(empList, ['_id', $localStorage.user._id.toString()]);
-        empList = arr;
+        //empList = arr;
 
         $timeout(function() {
-            deferredP.resolve(empList);
+            deferredP.resolve(arr);
         }, 100);
 
         return deferredP.promise;
