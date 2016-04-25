@@ -1,4 +1,6 @@
-<h1>Hello {{loggedInEmp}}</h1>
+<header></header>
+
+<!-- <h1>Hello {{loggedInEmp}}</h1> -->
 <div class="well clearfix">
     <div class="col-md-8">
         <h4 class="text-info"><b>Employees</b></h4>
@@ -7,7 +9,7 @@
         <select ng-init="sortBy=sortOpts[0];order(sortBy)" class="form-control" ng-options="item for item in sortOpts | uppercase" ng-model="sortBy" ng-change="order(sortBy)"></select>
     </div>
     <div class="col-md-2">
-        <a href="#add" class="btn btn-primary pull-right">Add Employee</a>
+        <a ui-sref="add" class="btn btn-primary pull-right">Add Employee</a>
     </div>
 </div>
 <div class="well">
@@ -25,14 +27,15 @@
             </tr>
         </thead>
         <tbody>
+            <!-- app.users.edit({UserId: '{{user.UserId}}'}) -->
             <tr ng-repeat="data in employees" class="text-primary">
-                <td ng-click="editEmployee(data._id)">{{data._id}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.name}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.email}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.age}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.gender}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.phone}}</td>
-                <td ng-click="editEmployee(data._id)">{{data.address}}</td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data._id}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.name}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.email}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.age}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.gender}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.phone}}</a></td>
+                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.address}}</a></td>
                 <td>
                     <del-emp id="{{data._id}}"></del-emp>
                 </td>

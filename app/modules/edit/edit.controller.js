@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('edit')
-    .controller('editCtrl', ['$scope', '$route', '$location', 'employeesService', EditController])
+    .controller('editCtrl', ['$scope', '$state', 'employeesService', EditController])
 
-function EditController($scope, $route, $location, employeesService) {
+function EditController($scope, $state, employeesService) {
 
     $scope.editEmp = {};
     $scope.updateEmp = updateEmp;
@@ -12,7 +12,7 @@ function EditController($scope, $route, $location, employeesService) {
 
     employeesService.getEmp().then(function(res) {
             $scope.editEmp = res.find(function(e) {
-                return e._id == $route.current.params._id
+                return e._id == $state.params.id
             });
             employees = res;
         })
@@ -22,6 +22,6 @@ function EditController($scope, $route, $location, employeesService) {
 
     function updateEmp(obj) {
         employeesService.setEmp(obj);
-        $location.path('/home');
+        $state.go('home');
     };
 };

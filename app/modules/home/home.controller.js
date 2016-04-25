@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('home')
-    .controller('homeCtrl', ['$scope', '$localStorage', '$location', '$filter', 'employeesService', HomeController])
+    .controller('homeCtrl', ['$scope', '$localStorage', '$state', '$filter', 'employeesService', HomeController])
 
-function HomeController($scope, $localStorage, $location, $filter, employeesService) {
+function HomeController($scope, $localStorage, $state, $filter, employeesService) {
 
     var orderBy = $filter('orderBy');
 
@@ -12,9 +12,7 @@ function HomeController($scope, $localStorage, $location, $filter, employeesServ
     $scope.employees = [];
     $scope.sortOpts = ['name', 'email', 'age', 'gender'];
 
-    $scope.editEmployee = editEmployee;
     $scope.order = order;
-
 
     employeesService.getEmp().then(function(res) {
             $scope.employees = res;
@@ -26,10 +24,6 @@ function HomeController($scope, $localStorage, $location, $filter, employeesServ
     $scope.$on('update-empList', function(event, data) {
         $scope.employees = data;
     });
-
-    function editEmployee(id) {
-        $location.path('/edit/' + id);
-    }
 
     function order(predicate) {
         $scope.predicate = predicate;

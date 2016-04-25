@@ -97,8 +97,7 @@ function employeesService($http, $q, $location, $timeout, $localStorage) {
         //     });
 
         var arr = _.reject(empList, ['_id', $localStorage.user._id.toString()]);
-        //empList = arr;
-
+        
         $timeout(function() {
             deferredP.resolve(arr);
         }, 100);
@@ -118,9 +117,8 @@ function employeesService($http, $q, $location, $timeout, $localStorage) {
     }
 
     function delEmp(obj) {
-        var arr = _.reject(empList, ['_id', obj]);
-        empList = arr;
-        return empList;
+        var arr = _.reject(_.reject(empList, ['_id', $localStorage.user._id.toString()]), ['_id', obj]);
+        return arr;
     }
 
 };

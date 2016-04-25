@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('edit')
-    .controller('addCtrl', ['$scope', '$location', 'employeesService', AddController]);
+    .controller('addCtrl', ['$scope', '$state', 'employeesService', AddController]);
 
-function AddController($scope, $location, employeesService) {
+function AddController($scope, $state, employeesService) {
     $scope.state = 'add';
     $scope.addEmp = addEmp;
 
@@ -11,7 +11,7 @@ function AddController($scope, $location, employeesService) {
         var employees;
 
         employees = employeesService.addEmp(obj);
-        $location.path('/home');
+        $state.go('home');
     };
 
 };
