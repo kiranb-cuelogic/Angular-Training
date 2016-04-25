@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('angularTraining', [
     'ngRoute',
+    'ui.router',
     'ngStorage',
     'ngMessages',
     'ngAnimate',
@@ -15,6 +16,6 @@ angular.module('angularTraining', [
     'edit',
     'user'
 ])
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({ redirectTo: '/login' });
+.config(['$urlRouterProvider', function($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/login');
 }]);
