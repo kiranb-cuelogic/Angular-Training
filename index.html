@@ -23,12 +23,9 @@
     <ul class="menu">
         <li><a href="#/users">Users</a></li>
     </ul>
-    
     <ui-view class="container"></ui-view>
-    <div class="container" ng-view></div>
-
-
-
+   
+    <!-- Common files to be loaded first -->
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -38,13 +35,16 @@
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <!-- Common files to be loaded first -->
+    <!-- Providers -->
     <script src="app/common/providers/index.provider.js"></script>
     <script src="app/common/providers/credentials.provider.js"></script>
+    <!-- Services -->
     <script src="app/common/services/index.service.js"></script>
+    <script src="app/common/services/session_injector.service.js"></script>
     <script src="app/common/services/login.service.js"></script>
     <script src="app/common/services/employees.service.js"></script>
     <script src="app/common/services/user.service.js"></script>
+    <!-- Directives -->
     <script src="app/common/directives/index.directive.js"></script>
     <script src="app/common/directives/delete_emp.directive.js"></script>
     <script src="app/common/directives/unique_email.directive.js"></script>

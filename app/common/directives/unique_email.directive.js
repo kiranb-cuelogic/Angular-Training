@@ -1,14 +1,12 @@
 'use-strict';
 
 angular.module('directives')
-    .directive('availemail', function($q, $timeout, employeesService) {
+    .directive('availemail', function($q, $timeout, $localStorage) {
         return {
             require: 'ngModel',
             link: function(scope, elm, attrs, ctrl) {
 
-                employeesService.getEmp().then(function(res) {
-                    alreadyTaken = _.map(res, 'email')
-                });
+                alreadyTaken = _.map($localStorage.empList, 'email')
 
                 if (scope.state == 'add') {
                     ctrl.$asyncValidators.avail = function(modelValue, viewValue) {
@@ -35,7 +33,7 @@ angular.module('directives')
                     };
                 }
 
-                
+
             }
         };
     });

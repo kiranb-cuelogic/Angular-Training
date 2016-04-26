@@ -1,25 +1,16 @@
 'use strict';
 
 angular.module('home')
-    .controller('homeCtrl', ['$scope', '$localStorage', '$state', '$filter', 'employeesService', HomeController])
+    .controller('homeCtrl', ['$scope', '$localStorage', '$state', '$filter', HomeController])
 
-function HomeController($scope, $localStorage, $state, $filter, employeesService) {
+function HomeController($scope, $localStorage, $state, $filter) {
 
     var orderBy = $filter('orderBy');
 
-    $scope.loggedInEmp = $localStorage.user.name;
-
-    $scope.employees = [];
+    $scope.employees = $localStorage.empList;
     $scope.sortOpts = ['name', 'email', 'age', 'gender'];
 
     $scope.order = order;
-
-    employeesService.getEmp().then(function(res) {
-            $scope.employees = res;
-        })
-        .catch(function(msg) {
-            console.log(msg);
-        });
 
     $scope.$on('update-empList', function(event, data) {
         $scope.employees = data;

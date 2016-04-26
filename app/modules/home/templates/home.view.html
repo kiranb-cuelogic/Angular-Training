@@ -1,9 +1,10 @@
 <header></header>
-
-<!-- <h1>Hello {{loggedInEmp}}</h1> -->
 <div class="well clearfix">
-    <div class="col-md-8">
+    <div class="col-md-6">
         <h4 class="text-info"><b>Employees</b></h4>
+    </div>
+    <div class="col-md-2">
+        <input type="text" ng-model="search" placeholder="search" class="form-control" />
     </div>
     <div class="col-md-2">
         <select ng-init="sortBy=sortOpts[0];order(sortBy)" class="form-control" ng-options="item for item in sortOpts | uppercase" ng-model="sortBy" ng-change="order(sortBy)"></select>
@@ -27,8 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- app.users.edit({UserId: '{{user.UserId}}'}) -->
-            <tr ng-repeat="data in employees" class="text-primary">
+            <tr ng-repeat="data in employees | filter : search" class="text-primary">
                 <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data._id}}</a></td>
                 <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.name}}</a></td>
                 <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.email}}</a></td>

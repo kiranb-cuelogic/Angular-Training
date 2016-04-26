@@ -7,5 +7,9 @@ angular.module('login')
                 url: '/login',
                 templateUrl: 'app/modules/login/templates/login.view.html',
                 controller: 'loginCtrl'
+            })
+            .state('logout', {
+                url: '/logout',
+                templateUrl: 'app/modules/login/templates/login.view.html'
             });
     }]);

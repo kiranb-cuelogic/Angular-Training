@@ -4,14 +4,15 @@ angular.module('edit')
     .controller('addCtrl', ['$scope', '$state', 'employeesService', AddController]);
 
 function AddController($scope, $state, employeesService) {
-    $scope.state = 'add';
+    $scope.state = $state.current.name;
     $scope.addEmp = addEmp;
 
     function addEmp(obj) {
-        var employees;
 
+        var employees;
         employees = employeesService.addEmp(obj);
         $state.go('home');
+        
     };
 
 };
