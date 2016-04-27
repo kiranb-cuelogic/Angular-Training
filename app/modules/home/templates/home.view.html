@@ -29,13 +29,13 @@
         </thead>
         <tbody>
             <tr ng-repeat="data in employees | filter : search" class="text-primary">
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data._id}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.name}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.email}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.age}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.gender}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.phone}}</a></td>
-                <td><a class="edit-link" ui-sref="edit({id: '{{data._id}}'})">{{data.address}}</a></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data._id}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.name}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.email}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.age}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.gender}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.phone}}</span></td>
+                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.address}}</span></td>
                 <td>
                     <del-emp id="{{data._id}}"></del-emp>
                 </td>
