@@ -17,6 +17,9 @@
     <table class="table table-hover table-bordered">
         <thead class="thead-default">
             <tr>
+                <th>
+                    <del-emp id="{{selectedEmpsId}}"></del-emp>
+                </th>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -24,21 +27,23 @@
                 <th>Gender</th>
                 <th>Phone No</th>
                 <th>Address</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="data in employees | filter : search" class="text-primary">
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data._id}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.name}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.email}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.age}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.gender}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.phone}}</span></td>
-                <td><span class="edit-link" ng-dblclick="redirect(data._id)">{{data.address}}</span></td>
+            <tr ng-if="employees" ng-repeat="data in employees | filter : search" class="text-primary" ng-init="check=false" ng-dblclick="redirect(data._id)" ng-class="{'bg-success':check}" ng-click="check=!check; selectedEmps(data._id, check)">
                 <td>
-                    <del-emp id="{{data._id}}"></del-emp>
+                    <input type="checkbox" ng-model="check" ng-click="check=!check" />
                 </td>
+                <td><span class="edit-link">{{data._id}}</span></td>
+                <td><span class="edit-link">{{data.name}}</span></td>
+                <td><span class="edit-link">{{data.email}}</span></td>
+                <td><span class="edit-link">{{data.age}}</span></td>
+                <td><span class="edit-link">{{data.gender}}</span></td>
+                <td><span class="edit-link">{{data.phone}}</span></td>
+                <td><span class="edit-link">{{data.address}}</span></td>
+            </tr>
+            <tr ng-if="employees.length==0">
+                <td colspan="8"><P class="well text-center text-danger">No Data Avaliable</P></td>
             </tr>
         </tbody>
     </table>

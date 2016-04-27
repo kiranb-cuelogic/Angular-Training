@@ -9,7 +9,8 @@ function EditController($scope, $state, $localStorage, employeesService) {
     $scope.updateEmp = updateEmp;
     $scope.state = $state.current.name;
 
-    $scope.editEmp = $localStorage.empList.find(function(e){return e._id == $state.params.id });
+    $scope.editEmp = $localStorage.empList.find(function(e) {
+        return e._id == $state.params.id });
 
     function updateEmp(obj) {
         employeesService.setEmp(obj);

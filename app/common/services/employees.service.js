@@ -45,7 +45,8 @@ function employeesService($http, $q, $location, $localStorage) {
     }
 
     function delEmp(obj) {
-        var arr = _.reject(_.reject($localStorage.empList, ['_id', $localStorage.user._id.toString()]), ['_id', obj]);
+        var obj = JSON.parse(obj);
+        var arr = _.differenceBy($localStorage.empList, obj, '_id');
         $localStorage.empList = arr;
         return arr;
     }

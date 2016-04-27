@@ -1,27 +1,34 @@
 'use strict';
 
 angular.module('directives')
-    .directive('delEmp', ['employeesService', delEmp]);
+    .directive('delEmp', ['$timeout', 'employeesService', delEmp]);
 
-function delEmp(employeesService) {
+function delEmp($timeout, employeesService) {
     return {
         restrict: 'E',
-        template: '<div><button type="button" class="btn btn-danger" ng-click="delEmp()">Delete</button></div>',
-        scope: {
-            id: "@id"
-        },
+        template: '<div><button type="button" class="btn btn-danger" ng-click="delEmp()" ng-disabled="disableBtn">{{delete}}</button></div>',
         link: function(scope, element, attrs) {
 
+            scope.delete = 'Delete';
+            scope.disableBtn = false;
+
             scope.delEmp = function() {
+                scope.delete = 'Deleting...';
+                scope.disableBtn = true;
+
                 var employees,
                     delete_emp = confirm("Delete Employee?");
 
-                if (delete_emp == true) {
-                    employees = employeesService.delEmp(attrs.id);
-                    scope.$emit('update-empList', employees);
-                }
-            }
-            
+                $timeout(function() {
+                    if (delete_emp == true) {
+                        employees = employeesService.delEmp(attrs.id);
+                        scope.$emit('update-empList', employees);
+                    }
+                    scope.delete = 'Delete';
+                    scope.disableBtn = false;
+                }, 300);
+            };
+
         }
 
     }
