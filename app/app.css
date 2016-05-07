@@ -48,6 +48,11 @@ table {
     display: block;
     padding: 8px 0;
 }
+
 .edit-link:hover {
     text-decoration: none;
+}
+
+.table-hover>tbody>tr:hover {
+    background: rgba(223, 240, 216, 0.7);
 }
