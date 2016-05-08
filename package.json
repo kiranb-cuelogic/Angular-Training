@@ -19,12 +19,12 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
-
     "pretest": "npm install"
-
-
+  },
+  "dependencies": {
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7"
   }
 }

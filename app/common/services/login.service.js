@@ -13,7 +13,7 @@ function loginService(credentials, $localStorage, employeesService) {
 
     function validateUser(user) {
 
-        var isValid = credentials.get().findIndex(i => i.email === user.email && i.password === user.password);
+        var isValid = credentials.get().findIndex(i = i.email === user.email && i.password === user.password);
 
         if (isValid != -1) {
             // $localStorage.token = { 'authenticated': true };
